@@ -36,6 +36,7 @@
       background: var(--white);
       color: var(--dark);
       -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
     }
 
     /* ── NAV ── */
@@ -158,6 +159,7 @@
       line-height: 1.75;
       margin-bottom: 32px;
       max-width: 440px;
+      word-break: break-word;
     }
 
     .hero-cta {
@@ -201,7 +203,7 @@
     .hero-stat strong {
       display: block;
       font-family: 'Playfair Display', serif;
-      font-size: 28px;
+      font-size: clamp(18px, 5vw, 28px);
       font-weight: 700;
       color: var(--pink);
     }
@@ -752,19 +754,35 @@
       .hero {
         flex-direction: column;
         text-align: center;
-        padding: 100px 5% 60px;
+        padding: 100px 7% 60px;
         min-height: auto;
+        overflow: hidden;
+        width: 100%;
+        box-sizing: border-box;
       }
 
-      .hero-text p { margin: 0 auto 28px; }
-      .hero-cta { justify-content: center; }
-      .hero-stats { justify-content: center; }
-      .hero-image { order: -1; }
+      .hero-text {
+        width: 100%;
+        max-width: 100%;
+        padding: 0;
+      }
+
+      .hero-text h1 { font-size: clamp(32px, 8vw, 48px); }
+
+      .hero-text p { margin: 0 auto 28px; max-width: 100%; }
+      .hero-cta { justify-content: center; flex-wrap: wrap; }
+      .hero-stats { justify-content: center; flex-wrap: wrap; gap: 20px; }
+      .hero-image { order: -1; width: 100%; display: flex; justify-content: center; }
+
+      .hero-img-wrap {
+        width: min(260px, 70vw);
+      }
 
       .hero-float-badge {
         left: 50%;
         transform: translateX(-50%);
         bottom: -14px;
+        white-space: nowrap;
       }
 
       .content-grid { grid-template-columns: 1fr; }
@@ -848,7 +866,7 @@
       <img src="muskaan.JPG" alt="Muskaan Pal">
     </div>
 
-    <div class="hero-float-badge">
+    <a href="https://www.youtube.com/@muskaan__pal" target="_blank" rel="noopener" class="hero-float-badge" style="text-decoration:none;color:inherit;">
       <div class="float-icon">
         <svg viewBox="0 0 24 24"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8zM9.75 15.5v-7l6.3 3.5-6.3 3.5z"/></svg>
       </div>
@@ -856,7 +874,7 @@
         <strong>Watch Now</strong>
         <div style="font-size:11px;color:var(--gray);font-weight:400;">on YouTube</div>
       </div>
-    </div>
+    </a>
   </div>
 </section>
 
@@ -951,27 +969,45 @@
     <div class="short-card">
       <div class="short-embed">
         <iframe src="https://www.youtube.com/embed/IHbVoqVEwgM"
-          title="Amazon Pinterest Finds"
+          title="Amazon Pinterest Finds - Pink Panther"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
           allowfullscreen loading="lazy">
         </iframe>
       </div>
       <div class="short-info">
-        <h4>Amazon Pinterest Finds 💞</h4>
+        <h4>Amazon Pinterest Finds - Pink Panther Grid 💞</h4>
         <a href="https://amzn.to/4dyRzYZ" target="_blank" rel="noopener sponsored" class="product-buy" style="text-decoration:none;">Buy on Amazon</a>
       </div>
     </div>
 
-    <div class="coming-soon-card">
-      <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z"/></svg>
-      <strong>Coming Soon</strong>
-      <span>More product picks</span>
+    <!-- Short: Laneige Lip Mask -->
+    <div class="short-card">
+      <div class="short-embed">
+        <iframe src="https://www.youtube.com/embed/nOoMZDM30NU"
+          title="Laneige Lip Sleeping Mask"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen loading="lazy">
+        </iframe>
+      </div>
+      <div class="short-info">
+        <h4>Best for lips - Laneige Lip Sleeping Mask 🍇</h4>
+        <a href="https://www.myntra.com/lip-mask/laneige/laneige-lip-sleeping-mask-ex-with-hyaluronic-acid--vitamin-c-8-g---berry/20174150/buy" target="_blank" rel="noopener sponsored" class="product-buy" style="text-decoration:none;">Buy on Myntra</a>
+      </div>
     </div>
 
-    <div class="coming-soon-card">
-      <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z"/></svg>
-      <strong>Coming Soon</strong>
-      <span>Fashion & accessories</span>
+    <!-- Short: Bistro Claytopia -->
+    <div class="short-card">
+      <div class="short-embed">
+        <iframe src="https://www.youtube.com/embed/fLGFSZFDhdk"
+          title="A day out with friends: Bistro Claytopia"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen loading="lazy">
+        </iframe>
+      </div>
+      <div class="short-info">
+        <h4>Bistro Claytopia - A day out with friends  ☕</h4>
+        <a href="https://www.bistroclaytopia.com/" target="_blank" rel="noopener" class="product-buy" style="text-decoration:none;">Bistro Claytopia</a>
+      </div>
     </div>
 
   </div>
@@ -1021,21 +1057,21 @@
   <p class="section-sub">From fashion hauls to honest product reviews — I keep it real, relatable, and fun.</p>
 
   <div class="content-grid">
-    <div class="content-card">
+    <a href="https://www.youtube.com/@muskaan__pal/shorts" target="_blank" rel="noopener" class="content-card" style="text-decoration:none;color:inherit;">
       <div class="content-card-icon">👗</div>
       <h3>Fashion Hauls</h3>
       <p>Latest trends, budget-friendly outfits, and styling tips for every occasion.</p>
-    </div>
-    <div class="content-card">
+    </a>
+    <a href="https://youtu.be/KhW_5IpQy5U?si=GPr-RFRTq3EpYnem" target="_blank" rel="noopener" class="content-card" style="text-decoration:none;color:inherit;">
       <div class="content-card-icon">💄</div>
       <h3>Makeup & Beauty</h3>
       <p>Easy tutorials, honest product reviews, and everyday glow routines.</p>
-    </div>
-    <div class="content-card">
+    </a>
+    <a href="https://www.instagram.com/muskaan__pal/" target="_blank" rel="noopener" class="content-card" style="text-decoration:none;color:inherit;">
       <div class="content-card-icon">✨</div>
       <h3>Lifestyle</h3>
       <p>Day-in-my-life vlogs, shopping diaries, and feel-good content.</p>
-    </div>
+    </a>
   </div>
 </section>
 
@@ -1063,9 +1099,11 @@
 
 <script>
   window.addEventListener('load', function() {
-    const shop = document.getElementById('shop');
-    const top = shop.getBoundingClientRect().top + window.scrollY - 64;
-    window.scrollTo({ top: top, behavior: 'smooth' });
+    setTimeout(function() {
+      const shop = document.getElementById('shop');
+      const top = shop.getBoundingClientRect().top + window.scrollY - 64;
+      window.scrollTo({ top: top, behavior: 'smooth' });
+    }, 300);
   });
 </script>
 </body>
