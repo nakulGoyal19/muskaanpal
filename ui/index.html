@@ -911,7 +911,7 @@
     </div>
   </div>
 
-  <div class="products-grid">
+  <div class="products-grid" id="products-grid">
 
     <!-- ── PRODUCT CARDS — replace placeholders with real products ── -->
     <!--
@@ -1061,5 +1061,12 @@
   <p class="footer-copy">© 2026 Muskaan Pal · muskaanpal.in · All rights reserved</p>
 </footer>
 
+<script>
+  window.addEventListener('load', function() {
+    const shop = document.getElementById('shop');
+    const top = shop.getBoundingClientRect().top + window.scrollY - 64;
+    window.scrollTo({ top: top, behavior: 'smooth' });
+  });
+</script>
 </body>
 </html>
