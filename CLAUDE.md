@@ -15,9 +15,13 @@ Personal website for Muskaan Pal, a fashion, beauty & lifestyle content creator 
 
 ```
 ui/
-├── index.html      # Entire site (HTML + CSS + JS inline)
-├── logo.png        # Heart-shaped "M" logo (used in nav + favicon)
-└── muskaan.JPG     # Hero section portrait photo
+├── index.html          # Main site (HTML + CSS + JS inline)
+├── about.html          # About Me page (detailed bio, original content)
+├── privacy-policy.html # Privacy Policy (required for AdSense)
+├── terms.html          # Terms of Service
+├── ads.txt             # Google AdSense ads.txt
+├── logo.png            # Heart-shaped "M" logo (used in nav + favicon)
+└── muskaan.JPG         # Hero section portrait photo
 ```
 
 Everything is in the `ui/` directory. There is no `src/`, no `public/`, no config files.
@@ -51,12 +55,12 @@ Everything is in the `ui/` directory. There is no `src/`, no `public/`, no confi
 
 1. **Nav** — fixed top bar with brand (logo + "Muskaan Pal" text), section links, hamburger menu for mobile. Blur backdrop. Perfumes link has a shimmer animation and "New Picks" tag.
 2. **Hero** — two-column (text left, photo right). "Content Creator" badge, heading, description, CTA buttons (YouTube red + Instagram outline), stats row.
-3. **Shop / My Picks** — pink background. Grid of all product cards (perfume + non-perfume), each with an embedded YouTube short or Instagram reel + affiliate link buttons. Perfume cards appear first, then viral product picks (Bean Bag, Amazon Pinterest Finds, Laneige Lip Mask, Bistro Claytopia, Bath&BodyWorks, Perfume & Mist Stack). Cards support multiple buy links stacked vertically.
-4. **Perfumes** — purple-to-pink gradient background. Dedicated fragrance section with 3-column grid of perfume cards. Each card has embedded Instagram reel + multiple affiliate links. Currently has: 5 Must-Have Perfumes (5 Myntra links), Armaf Club De Nuit / Chanel Coco Mademoiselle Dupe (Amazon), Baccarat Rouge 540 dupes — In The Stars, Midnight Bloom, Untold (Amazon), Bath&BodyWorks Covered in Roses / Delina Dupe (Amazon), Perfume & Mist Stack.
+3. **Shop / My Picks** — pink background. Affiliate disclosure banner at top. Grid of all product cards (perfume + non-perfume), each with an embedded YouTube short or Instagram reel + affiliate link buttons. Perfume cards appear first, then viral product picks (Bean Bag, Amazon Pinterest Finds, Laneige Lip Mask, Bistro Claytopia, Bath&BodyWorks, Perfume & Mist Stack). Cards support multiple buy links stacked vertically.
+4. **Perfumes** — purple-to-pink gradient background. Dedicated fragrance section with 3-column grid of perfume cards. Each card has embedded Instagram reel + multiple affiliate links. Currently has: Armaf Club de Nuit Men / Creed Aventus Dupe (Amazon + Myntra), Maison Asrar Vanilla Voyage (Friday Charm), 5 Must-Have Perfumes (5 Myntra links), Armaf Club De Nuit / Chanel Coco Mademoiselle Dupe (Amazon), Baccarat Rouge 540 dupes — In The Stars, Midnight Bloom, Untold (Amazon), Bath&BodyWorks Covered in Roses / Delina Dupe (Amazon), Perfume & Mist Stack.
 5. **Videos** — 2-column grid of embedded YouTube videos with tags and titles.
 6. **Social** — two large cards linking to YouTube and Instagram profiles.
 7. **Content** — 3-column grid of content category cards (Fashion, Makeup, Lifestyle).
-8. **Footer** — dark gradient, brand info, social links, copyright.
+8. **Footer** — dark gradient, brand info, contact email (muskaan5pal@gmail.com), social links, links to Privacy Policy & Terms of Service, copyright.
 
 ## Mobile Menu
 
@@ -84,7 +88,7 @@ Hamburger button visible at 768px and below. Opens a dropdown menu with links to
 
 - **YouTube channel:** `@muskaan__pal`
 - **Instagram:** `@muskaan__pal`
-- **Affiliate links:** Amazon (`amzn.to` short links with `rel="sponsored"`), Myntra, Bistro Claytopia
+- **Affiliate links:** Amazon (`amzn.to` short links with `rel="sponsored"`), Myntra (`myntr.it`), Friday Charm, Bistro Claytopia
 - **Embedded content IDs** are in the iframe `src` attributes in the Shop, Perfumes, and Videos sections.
 
 ## Common Changes
@@ -170,6 +174,8 @@ Static site — just serve the `ui/` directory. No build step needed. Works with
 - All styles are in a `<style>` tag in `<head>`, not in external CSS files.
 - All JS is in a `<script>` tag before `</body>`.
 - Image assets are large (logo 1.7MB, hero photo 13MB) — consider compressing if performance matters.
-- No OG/social meta tags configured yet.
+- OG meta tags configured (og:title, og:description, og:image, og:url, twitter:card).
 - All video embeds (shorts + reels) use 9:16 aspect ratio via `aspect-ratio: 9 / 16` on `.short-embed` and `.perfume-embed`.
-- Affiliate links: Myntra (`myntr.it` short links) for perfumes, Amazon (`amzn.to`) for dupes and other products.
+- Affiliate links: Myntra (`myntr.it` short links) for perfumes, Amazon (`amzn.to`) for dupes and other products, Friday Charm for select perfumes.
+- **Google AdSense** integrated (`ca-pub-9181267294148574`) with ads.txt, privacy policy, terms of service, and affiliate disclosure for compliance.
+- Nav "About" link points to `about.html` (separate page), not an anchor on the main page.
